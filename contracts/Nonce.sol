@@ -11,12 +11,14 @@ contract Nonce is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnable {
     using Counters for Counters.Counter;
     // counting tokens count--
     Counters.Counter private _tokenIdCounter;
+    uint256 MAX_SUPPLY = 10000;
 
     constructor() ERC721("nonce", "NOT") {}
 
     // Minting Functions
     function safeMint(address to, string memory uri) public {
         uint256 tokenId = _tokenIdCounter.current();
+        require(tokenId <= MAX_SUPPLY, "All NFT Has Been Minted....");
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
