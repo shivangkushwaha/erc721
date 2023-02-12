@@ -22,7 +22,7 @@ module.exports = {
     },
     goerli: {
       chainId: 5,
-      blockconfirmations: 6,
+      blockconfirmations: 10,
       url: GOERLI_RPC_URL,
       accounts: [PRIVATE_KEY]
     }
